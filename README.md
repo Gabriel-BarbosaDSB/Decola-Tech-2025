@@ -24,7 +24,7 @@ classDiagram
 
     class Rating {
         +String gameId
-        +int stars
+        +Double stars
     }
 
     User "1" -- "N" Game : plays
