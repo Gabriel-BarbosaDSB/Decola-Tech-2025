@@ -7,8 +7,8 @@ Java RESTful API criada para a Decola Tech Avanade
 classDiagram
     class User {
         +Int id
-        +String email
         +String name
+        +String username
         +String password
         +String icon
     }
@@ -26,6 +26,7 @@ classDiagram
     }
 
     class Rating {
+        +Int id
         +Int gameId
         +Int stars
     }
