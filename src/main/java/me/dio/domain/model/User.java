@@ -1,11 +1,21 @@
 package me.dio.domain.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Integer id;
-    private String email;
+    @Column(length = 50, nullable = false)
     private String name;
+    @Column(length = 20, nullable = false)
+    private String username;
+    @Column(length = 100, nullable = false)
     private String password;
-    private String userIcon;
+    @Column(nullable = false)
+    private String icon;
 
     public Integer getId(){
 
@@ -14,15 +24,6 @@ public class User {
     public void setId(Integer id) {
 
         this.id = id;
-    }
-
-    public String getEmail(){
-
-        return email;
-    }
-    public void setEmail(String email){
-
-        this.email = email;
     }
 
     public String getName(){
@@ -34,6 +35,13 @@ public class User {
         this.name = name;
     }
 
+    public String getUsername(){
+        return username;
+    }
+    public void setUsername(String username){
+        this.username = username;
+    }
+
     public String getPassword(){
 
         return password;
@@ -43,12 +51,23 @@ public class User {
         this.password = password;
     }
 
-    public String getUserIcon(){
+    public String getIcon(){
 
-        return userIcon;
+        return icon;
     }
-    public void setUserIcon(String Icon){
+    public void setIcon(String Icon){
 
-        this.userIcon = userIcon;
+        this.icon = icon;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", icon='" + icon + '\'' +
+                '}';
     }
 }

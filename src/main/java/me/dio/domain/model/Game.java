@@ -1,9 +1,18 @@
 package me.dio.domain.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Game {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "game_name")
     private Integer id;
+    @Column(length = 50, nullable = false)
     private String name;
-    private String gameIcon;
+    @Column(nullable = false)
+    private String icon;
+    @Column(nullable = false)
     private String description;
 
     public Integer getId(){
@@ -20,11 +29,11 @@ public class Game {
         this.name = name;
     }
 
-    public String getGameIcon(){
-        return gameIcon;
+    public String getIcon(){
+        return icon;
     }
-    public void setGameIcon(String Icon){
-        this.gameIcon = gameIcon;
+    public void setIcon(String Icon){
+        this.icon = icon;
     }
 
     public String getDescription(){
@@ -32,5 +41,15 @@ public class Game {
     }
     public void setDescription(String description){
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", icon='" + icon + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
